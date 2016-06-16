@@ -1,0 +1,70 @@
+<ion-view title="Walletek" class="gray-background">
+    <ion-nav-title>
+        <img class="title-image-text" src="app/assets/img/walletek-logo-white.png">
+        <span class="salsa-font">Card</span>
+    </ion-nav-title>
+
+    <ion-content padding="true">
+
+      <div class="card" style="border-radius: 25px;">
+        <div class="list" style="padding-top: 20px">
+          <div class="item item-icon-left">
+            <table style="width:100%">
+              <tr>
+                <td style="width: 25%;"> <h2> <i class="icon ion-bag"></i> <b>Shop :</b> </h2> </td>
+                <td class="text-center"> <h2> <b>{{card.shop}}</b> </h2> </td>
+              </tr>
+            </table>
+          </div>
+          <div class="item item-icon-left">
+            <table style="width:100%">
+              <tr>
+                <td style="width: 25%"> <h2> <i class="icon ion-pound"></i> <b>Name:</b></h2> </td>
+                <td class="text-center"> <h2> <b> {{card.name}} </b> </h2> </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div style="padding: 0px 20px 0px 20px">
+          <button ng-click="openModal()" class="button button-full orange ink">Code</button>
+        </div>
+
+        <div style="padding: 10px 20px 20px 20px">
+          <div style="border-style: solid; border-color: #e8643e; border-width: 2px;">
+            <form name="infoForm" novalidate="" ng-submit="updateInfo(infoForm)">
+              <div class="list">
+                <label class="item item-input">
+                  <div class="bar bar-positive" style="padding-bottom: 30px; padding-top: -10px; margin-top: -10px">
+                    <h1 class="title">Informations</h1>
+                  </div>
+                  <div style="padding-top: 43px;">
+                    <textarea ng-model="info.desc" required ratio="0.4" dynamic-textarea></textarea>
+                  </div>
+                </label>
+              </div>
+              <div id="buttonlist">
+                <button type="submit" class="button orange button-full ink item-icon-left ion-edit"  style="margin-bottom: 0px;"> Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div ng-if="IsOwner()" >
+        <button ng-click="goshare()" class="button button-full ink">Share</button>
+        <button ng-click="deleteCard()" class="button button-full button-assertive ink">Delete</button>
+      </div>
+    </ion-content>
+
+</ion-view>
+
+<script id="image-modal.html" type="text/ng-template">
+  <div class="modal image-modal transparent" ng-click="closeModal()">
+    <ion-pane class="transparent">
+        <img class="fullscreen-image barcode-wrapper" id="barcode">
+      </div>
+    </ion-pane>
+  </div>
+</script>
